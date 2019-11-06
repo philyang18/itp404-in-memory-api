@@ -5,7 +5,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: 'https://localhost:3000'
+  origin: 'localhost:3000'
 }));
 
 const db = {
