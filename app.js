@@ -2,9 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+// Middleware
 app.use(express.json());
 app.use(cors({
-  origin: 'https://google.com'
+  origin: 'https://localhost:3000'
 }));
 
 const db = {
@@ -17,6 +18,11 @@ const db = {
     {
       id: 2,
       title: 'Post 2',
+      body: 'something else here...'
+    },
+    {
+      id: 3,
+      title: 'Post 3',
       body: 'something else here...'
     }
   ]
@@ -76,4 +82,4 @@ app.put('/api/posts/:id', (request, response) => {
   }
 });
 
-app.listen(8000);
+app.listen(process.env.PORT || 8000);
